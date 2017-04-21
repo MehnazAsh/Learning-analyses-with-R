@@ -4,4 +4,4 @@ Data analyses recently caught my attention and am loving it so far.I am taking l
 inferential statistics and data analyses using R.Learning through practice is the best,this blog will contain all examples I have worked through and will work while learning analyses using R.
 
 
-[Multivariate](https://github.com/MehnazAsh/Learning-analyses-with-R/blob/master/Testfile)
+[Multivariate](https://github.com/MehnazAsh/Learning-analyses-with-R/blob/master/test1.md)
