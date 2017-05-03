@@ -9,9 +9,9 @@ ggplot(data=gatheredfemalelitrecy,aes(x=Years,y=female_litrecy_rate))   +
   scale_y_continuous(breaks=seq(0,100,10)) +
   geom_text(aes(label=Country),check_overlap=TRUE)+ stat_smooth(method='lm', formula = y~x)
   
- ## now read another file which contains data for age at the time of first marriage in females, to a data frame 
+ # now read another file which contains data for age at the time of first marriage in females, to a data frame 
   ageofmarrigeinexcel<-read_excel("indicator age of marriage.xlsx")
-## name the first column
+# name the first column
 colnames(ageofmarrigeinexcel)[1]<-"Country"
 gatheredAgeDatafromExcel <- ageofmarrigeinexcel %>% gather(Years,Age,-Country,na.rm = TRUE,convert=TRUE)
 ggplot(data=gatheredAgeDatafromExcel,aes(x=Years,y=Age))   +
