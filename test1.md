@@ -1,7 +1,9 @@
 ```r
 #read data from the excel file
 female_litrecy<-read_excel('indicatorSE_ADT_LITR_FE_ZS.xls.xlsx')
+
 colnames(female_litrecy)[1]<-"Country"
+
 gatheredfemalelitrecy <- female_litrecy %>% gather(Years,female_litrecy_rate,-Country,na.rm = TRUE,convert=TRUE)
 ggplot(data=gatheredfemalelitrecy,aes(x=Years,y=female_litrecy_rate))   +
   geom_point(alpha=1,position = position_jitter(h=0), color='orange') +
