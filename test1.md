@@ -1,3 +1,4 @@
+````r
 #read data from the excel file
 female_litrecy<-read_excel('indicatorSE_ADT_LITR_FE_ZS.xls.xlsx')
 colnames(female_litrecy)[1]<-"Country"
@@ -41,3 +42,4 @@ xlab('%age of literate females aged 15 and above') +
   ylab('Age at first marriage of females')   + geom_text(aes(label=Country)) +
   geom_smooth(method='lm', formula=y~x)
 
+````
