@@ -42,6 +42,19 @@ xlab('%age of literate females aged 15 and above') +
 ylab('Age at first marriage of females')   + geom_text(aes(label=Country)) +
 geom_smooth(method='lm', formula=y~x)
 
+with(litrecy_and_ageatmarriage_grouped_by_Country,cor.test(female_litrecy_rate,Age))
+
+Pearson's product-moment correlation
+
+data:  female_litrecy_rate and Age
+t = 2.5427, df = 19, p-value = 0.01986
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.09224804 0.76841539
+sample estimates:
+      cor 
+0.5038696 
+
 p1<-lm(data=litrecy_and_ageatmarriage_grouped_by_Country,female_litrecy_rate~Age )
 summary(p1)
 
