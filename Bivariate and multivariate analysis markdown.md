@@ -23,14 +23,10 @@ scale_x_continuous(breaks=seq(1600,2005,50)) +
 scale_y_continuous(breaks=seq(10,40,2)) +
 geom_text(aes(label=Country),check_overlap=TRUE) + stat_smooth(method='lm',formula=y~x)
   
-  
 ##Merge the two data frame
 litrecy_and_ageatmarriage<-inner_join(gatheredfemalelitrecy,gatheredAgeDatafromExcel,by=c('Country','Years'))
   
-
-  
 ggpairs(data=litrecy_and_ageatmarriage,columns=c('Years','female_litrecy_rate','Age'),diag=list(continuous=wrap('barDiag',binwidth=5)))
-  
   
 ggplot(data=litrecy_and_ageatmarriage, aes(x=female_litrecy_rate,y=Age)) + 
 geom_point(aes(color=Country,size=Years)) +
