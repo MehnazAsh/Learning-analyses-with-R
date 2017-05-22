@@ -27,19 +27,29 @@ geom_text(aes(label=Country),check_overlap=TRUE) + stat_smooth(method='lm',formu
 ##Merge the two data frame
 litrecy_and_ageatmarriage<-inner_join(gatheredfemalelitrecy,gatheredAgeDatafromExcel,by=c('Country','Years'))
   
-litrecy_and_ageatmarriage_grouped_by_Country<-litrecy_and_ageatmarriage %>% 
-group_by(Country) %>%  
-arrange(Country) %>% 
-filter(n()>=2)
+
   
 ggpairs(data=litrecy_and_ageatmarriage,columns=c('Years','female_litrecy_rate','Age'),diag=list(continuous=wrap('barDiag',binwidth=5)))
   
   
-ggplot(data=litrecy_and_ageatmarriage_grouped_by_Country, aes(x=female_litrecy_rate,y=Age)) + 
+ggplot(data=litrecy_and_ageatmarriage, aes(x=female_litrecy_rate,y=Age)) + 
 geom_point(aes(color=Country,size=Years)) +
 scale_y_continuous(breaks=seq(10,35,2)) +
 scale_x_continuous(breaks=seq(0,100,5))+
 xlab('%age of literate females aged 15 and above') +
 ylab('Age at first marriage of females')   + geom_text(aes(label=Country)) +
 geom_smooth(method='lm', formula=y~x)
+
+with(litrecy_and_ageatmarriage,cor.test(female_litrecy_rate,Age))
+
+Pearson's product-moment correlation
+
+data:  female_litrecy_rate and Age
+t = 5.2795, df = 51, p-value = 2.687e-06
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.3862388 0.7450490
+sample estimates:
+     cor 
+0.594471 
 ```
